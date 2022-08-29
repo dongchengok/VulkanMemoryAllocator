@@ -19,6 +19,10 @@ option(VMA_DEBUG_INITIALIZE_ALLOCATIONS "Automatically fill new allocations and 
 option(VMA_DEBUG_GLOBAL_MUTEX "Enable single mutex protecting all entry calls to the library" OFF)
 option(VMA_DEBUG_DONT_EXCEED_MAX_MEMORY_ALLOCATION_COUNT "Never exceed VkPhysicalDeviceLimits::maxMemoryAllocationCount and return error" OFF)
 
+# 因为用了volk，所以这俩都要禁用掉，函数自己传
+set(VMA_STATIC_VULKAN_FUNCTIONS OFF)
+set(VMA_DYNAMIC_VULKAN_FUNCTIONS OFF)
+
 message(STATUS "VMA_STATIC_VULKAN_FUNCTIONS = ${VMA_STATIC_VULKAN_FUNCTIONS}")
 message(STATUS "VMA_DYNAMIC_VULKAN_FUNCTIONS = ${VMA_DYNAMIC_VULKAN_FUNCTIONS}")
 message(STATUS "VMA_DEBUG_ALWAYS_DEDICATED_MEMORY = ${VMA_DEBUG_ALWAYS_DEDICATED_MEMORY}")
